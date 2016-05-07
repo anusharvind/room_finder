@@ -11,9 +11,13 @@
     </div>
 
     <div align="right" style="float: right">
-		  <a class="navbar-brand" href="/">Host my Room &nbsp;&nbsp;| </a>
-    	<a class="navbar-brand" href="/">Sign in <%= link_to logo("fb.png",50,50) %> &nbsp;&nbsp; </a>
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <a class="navbar-brand" href="/">Host my Room &nbsp;&nbsp;| </a>
+      <% else %>
+        <a class="navbar-brand" href="/">Sign in <%= link_to logo("fb.png",50,50), "auth/facebook", id: "sign_in" %> &nbsp;&nbsp; </a>
+      <% end %>
     </div>
-
   </div>
 </nav>

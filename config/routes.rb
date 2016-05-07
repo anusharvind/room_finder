@@ -19,13 +19,20 @@ Rails.application.routes.draw do
 
   resources :rooms
   resources :users
+  get 'sessions/create'
 
-
+  get 'sessions/destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'pages#home'
+
+  get 'auth/:provider/callback' => 'sessions#create'
+  get 'auth/failure' => redirect('/')
+  get 'signout' => 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
