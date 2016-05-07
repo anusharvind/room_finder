@@ -28,8 +28,15 @@ class RoomsController < ApplicationController
   # POST /rooms.json
   def create
     @room = Room.new(room_params)
+    @room_facility = RoomRule.new(room_rules_params)
+    @room_rule     = RoomFacility.new(room_facilities_params)
+    #debugger
     respond_to do |format|
-      if @room.save and @room_rule.save and @room_facility.save
+      if @room.save
+          @room_rule.room_id = @room.id
+          @room_facility.room_id = @room.id
+          @room_rule.save
+          @room_facility.save
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
@@ -71,6 +78,14 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:name, :area, :room_type, :total_limit, :current_vacancy, :city, :gender_preference, :visibility, :total_rent, :expected_rent, :latitude, :longitude, :user_id)
+      params.permit(:name, :area, :room_type, :total_limit, :current_vacancy, :city, :gender_preference, :visibility, :total_rent, :expected_rent, :latitude, :longitude)
+    end
+
+    def room_rules_params
+      params.permit(:veg_only, :smoking_allowed, :alcohol_allowed)
+    end
+
+    def room_facilities_params
+      params.permit(:tv, :wasing_machine, :ac, :basic_appliance, :two_wheeler_parking, :four_wheeler_parking)
     end
 end

@@ -1,67 +1,94 @@
-<%= form_for(@room) do |f| %>
-  <% if @room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
+<%= form_tag(action: "create", method: "post") do %>
+  
+  <div class="field">
+    <%= label_tag(:name,"NAME") %><br>  
+    <%= text_field_tag(:name) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:area,"AREA") %><br>  
+    <%= text_field_tag(:area) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:room_type,"ROOMTYPE") %><br>  
+    <%= text_field_tag(:room_type) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:total_limit,"TOTAL LIMIT") %><br>  
+    <%= text_field_tag(:total_limit) %>
+  </div>
+  <div class="field">
+    <%= label_tag(:current_vacancy,"CURRENT VACANCY") %><br>  
+    <%= number_field_tag(:current_vacancy) %>
+  </div>
 
-      <ul>
-      <% @room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= label_tag(:city,"CITY") %><br>  
+    <%= text_field_tag(:city) %>
   </div>
   <div class="field">
-    <%= f.label :area %><br>
-    <%= f.text_field :area %>
-  </div>
-  <div class="field">
-    <%= f.label :room_type %><br>
-    <%= f.number_field :room_type %>
-  </div>
-  <div class="field">
-    <%= f.label :total_limit %><br>
-    <%= f.text_field :total_limit %>
-  </div>
-  <div class="field">
-    <%= f.label :current_vacancy %><br>
-    <%= f.number_field :current_vacancy %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :gender_preference %><br>
-    <%= f.text_field :gender_preference %>
+    <%= label_tag(:gender_preference,"GENDER PREFERENCE") %><br>  
+    <%= text_field_tag(:gender_preference) %>
   </div>
   <div class = "field">
-    <%= f.label :visibility %><br>
-   <div style = "float:left"> <%= f.check_box :visibility %></div><br>
+    <%= label_tag(:visibility,"VISIBILITY") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:visibility) %></div><br>
   </div>
   <div class="field">
-    <%= f.label :total_rent %><br>
-    <%= f.text_field :total_rent %>
+    <%= label_tag(:total_rent,"TOTAL RENT") %><br>  
+    <%= text_field_tag(:total_rent) %>
   </div>
   <div class="field">
-    <%= f.label :expected_rent %><br>
-    <%= f.text_field :expected_rent %>
+    <%= label_tag(:expected_rent,"Expected RENT") %><br>  
+    <%= text_field_tag(:expected_rent) %>
+  </div>
+  <div class="field"> 
+    <%= hidden_field_tag(:latitude) %>
   </div>
   <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
+    <%= hidden_field_tag(:longitude) %>
+  </div>
+
+<h2>Room Facilities</h2><br>
+
+  <div class="field">
+    <%= label_tag(:tv,"TV") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:tv) %></div><br>
   </div>
   <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
+    <%= label_tag(:wasing_machine,"WASHING MACHINE") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:wasing_machine) %></div><br>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= label_tag(:ac,"AC") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:ac) %></div><br>
   </div>
-  
-<% end %>
+  <div class="field">
+    <%= label_tag(:basic_appliance,"BASIC APPLIANCES") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:basic_appliance) %></div><br>
+  </div>
+  <div class="field">
+    <%= label_tag(:two_wheeler_parking,"TWO WHEELER PARKING") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:two_wheeler_parking) %></div><br>
+  </div>
+  <div class="field">
+    <%= label_tag(:four_wheeler_parking,"FOUR WHEELER PARKING") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:four_wheeler_parking) %></div><br>
+  </div>
+
+<h2>Room Rules</h2><br>
+
+  <div class="field">
+    <%= label_tag(:veg_only,"VEG ONLY") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:veg_only) %></div><br>
+  </div>
+  <div class="field">
+    <%= label_tag(:smoking_allowed,"SMOKING ALLOWED") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:smoking_allowed) %></div><br>
+  </div>
+  <div class="field">
+    <%= label_tag(:alcohol_allowed,"ALCOHOL ALLOWED") %><br>  
+    <div style = "float:left"> <%= check_box_tag(:alcohol_allowed) %></div><br>
+  </div>
+
+  <%= submit_tag("Save") %>
+  <% end %>
