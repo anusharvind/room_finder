@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'pages/home'
 
   get 'pages/help'
@@ -7,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
+=======
+  resources :rooms
+  resources :users
+>>>>>>> 4a57f4967449f147418d4fb1da66153c33823a25
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

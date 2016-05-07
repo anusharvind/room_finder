@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @room.area %>
+</p>
+
+<p>
+  <strong>Room type:</strong>
+  <%= @room.room_type %>
+</p>
+
+<p>
+  <strong>Total limit integer:</strong>
+  <%= @room.total_limit_integer %>
+</p>
+
+<p>
+  <strong>Current vacancy:</strong>
+  <%= @room.current_vacancy %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @room.city %>
+</p>
+
+<p>
+  <strong>Gender preference:</strong>
+  <%= @room.gender_preference %>
+</p>
+
+<p>
+  <strong>Visibility:</strong>
+  <%= @room.visibility %>
+</p>
+
+<p>
+  <strong>Total rent:</strong>
+  <%= @room.total_rent %>
+</p>
+
+<p>
+  <strong>Expected rent:</strong>
+  <%= @room.expected_rent %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @room.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @room.longitude %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @room.user %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

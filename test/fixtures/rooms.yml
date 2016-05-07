@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  area: MyString
+  room_type: 1
+  total_limit_integer: MyString
+  current_vacancy: 1
+  city: MyString
+  gender_preference: MyString
+  visibility: false
+  total_rent: 1.5
+  expected_rent: 1.5
+  latitude: MyString
+  longitude: MyString
+  user_id: 
+
+two:
+  name: MyString
+  area: MyString
+  room_type: 1
+  total_limit_integer: MyString
+  current_vacancy: 1
+  city: MyString
+  gender_preference: MyString
+  visibility: false
+  total_rent: 1.5
+  expected_rent: 1.5
+  latitude: MyString
+  longitude: MyString
+  user_id: 
