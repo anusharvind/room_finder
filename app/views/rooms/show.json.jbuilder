@@ -1,0 +1,1 @@
+json.extract! @room, :id, :name, :area, :room_type, :total_limit_integer, :current_vacancy, :city, :gender_preference, :visibility, :total_rent, :expected_rent, :latitude, :longitude, :user_id, :created_at, :updated_at

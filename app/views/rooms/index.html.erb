@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Area</th>
+      <th>Room type</th>
+      <th>Total limit integer</th>
+      <th>Current vacancy</th>
+      <th>City</th>
+      <th>Gender preference</th>
+      <th>Visibility</th>
+      <th>Total rent</th>
+      <th>Expected rent</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.name %></td>
+        <td><%= room.area %></td>
+        <td><%= room.room_type %></td>
+        <td><%= room.total_limit_integer %></td>
+        <td><%= room.current_vacancy %></td>
+        <td><%= room.city %></td>
+        <td><%= room.gender_preference %></td>
+        <td><%= room.visibility %></td>
+        <td><%= room.total_rent %></td>
+        <td><%= room.expected_rent %></td>
+        <td><%= room.latitude %></td>
+        <td><%= room.longitude %></td>
+        <td><%= room.user %></td>
+        <td><%= link_to 'Show', room %></td>
+        <td><%= link_to 'Edit', edit_room_path(room) %></td>
+        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Room', new_room_path %>
