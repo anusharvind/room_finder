@@ -1,41 +1,26 @@
 <%= form_for(@room_facility) do |f| %>
-  <% if @room_facility.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@room_facility.errors.count, "error") %> prohibited this room_facility from being saved:</h2>
-
-      <ul>
-      <% @room_facility.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :tv %><br>
-    <%= f.check_box :tv %>
+     <div style = "float:left"> <%= f.check_box :tv %></div><br>
   </div>
   <div class="field">
     <%= f.label :wasing_machine %><br>
-    <%= f.check_box :wasing_machine %>
+     <div style = "float:left"> <%= f.check_box :wasing_machine %></div><br>
   </div>
   <div class="field">
     <%= f.label :ac %><br>
-    <%= f.check_box :ac %>
+     <div style = "float:left"> <%= f.check_box :ac %></div><br>
   </div>
   <div class="field">
     <%= f.label :basic_appliance %><br>
-    <%= f.check_box :basic_appliance %>
+     <div style = "float:left"> <%= f.check_box :basic_appliance %></div><br>
   </div>
   <div class="field">
     <%= f.label :two_wheeler_parking %><br>
-    <%= f.check_box :two_wheeler_parking %>
+     <div style = "float:left"> <%= f.check_box :two_wheeler_parking %></div><br>
   </div>
   <div class="field">
     <%= f.label :four_wheeler_parking %><br>
-    <%= f.check_box :four_wheeler_parking %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+     <div style = "float:left"> <%= f.check_box :four_wheeler_parking %></div><br>
   </div>
 <% end %>
