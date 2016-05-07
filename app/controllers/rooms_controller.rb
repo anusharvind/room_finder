@@ -5,6 +5,11 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    if(params.has_key?(:user_id)) then
+      @rooms = Room.where(user_id: params[:user_id])
+    else
+      @rooms = Room.all
+    end
   end
 
   # GET /rooms/1
@@ -22,6 +27,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1/edit
   def edit
+    @room = params[:id]
   end
 
   # POST /rooms

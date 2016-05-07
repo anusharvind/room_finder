@@ -1,23 +1,23 @@
 <div align="left">
-		<%= link_to logo("room-finder-logo.png",170,100) %>
+		<%= link_to logo("room-finder-logo.png",170,100), root_path %>
 </div>
 
 <% if current_user %>
   <div align="right">
-        Signed in as <strong><%= current_user.name %></strong>!
+        Signed in as <strong><%= link_to current_user.name, current_user %></strong>!
   </div>
 <% end %>
 
 <nav class="navbar navbar-default" role="navigation">
   <div class="container" width="100%" style="float: left">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Home &nbsp;&nbsp; |</a>
-      <a class="navbar-brand" href="/pages/about">About &nbsp;&nbsp; |</a>
+      <a class="navbar-brand" href="/pages/home">Home &nbsp;&nbsp; |</a>
       <a class="navbar-brand" href="/pages/help">Help &nbsp;&nbsp;</a>
     </div>
 
     <div align="right" style="float: right">
       <% if current_user %>
+             <a class="navbar-brand" href="/rooms">Rooms &nbsp;&nbsp;| </a>
              <a class="navbar-brand" href="/new_room">Host my Room &nbsp;&nbsp;| </a>
               <%= link_to "Sign out    ", signout_path, id: "sign_out", :class=> "navbar-brand" %> &nbsp;&nbsp;
       <% else %>

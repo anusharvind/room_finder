@@ -1,134 +1,153 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
-
-<p>
-  <strong>Area:</strong>
-  <%= @room.area %>
-</p>
-
-<p>
-  <strong>Room type:</strong>
-  <% roomtype = {1 => "Apartment", 2 => "Induvidual House", 3 => "PG"} %>
-  <%= roomtype[@room.room_type] %>
-</p>
-
-<p>
-  <strong>Total limit:</strong>
-  <%= @room.total_limit %>
-</p>
-
-<p>
-  <strong>Current vacancy:</strong>
-  <%= @room.current_vacancy %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @room.city %>
-</p>
-
-<p>
-  <strong>Gender preference:</strong>
-  <%= @room.gender_preference %>
-</p>
-
-<p>
-  <strong>Visible in Search:</strong>
-  <%= @room.visibility ? "Yes" : "No" %>
-</p>
-
-<p>
-  <strong>Total rent:</strong>
-  <%= @room.total_rent %>
-</p>
-
-<p>
-  <strong>Expected rent:</strong>
-  <%= @room.expected_rent %>
-</p>
-
-
-<p>
-  <strong>User:</strong>
-  <%= link_to @room.user.name, @room.user %>
-</p>
-
-<h3>Facilities</h3>
 <table>
   <tr>
     <td>
+      <p id="notice"><%= notice %></p>
       <p>
-        <strong>TV:</strong>
-        <%= RoomFacility.find_by(room_id: @room.id).tv ? "Yes" : "No" %>
+        <strong>Name:</strong>
+        <%= @room.name %>
       </p>
-    </td>
-    <td style="padding-left: 20px">
+
       <p>
-        <strong>AC:</strong>
-        <%= RoomFacility.find_by(room_id: @room.id).ac ? "Yes" : "No" %>
+        <strong>Area:</strong>
+        <%= @room.area %>
       </p>
+
+      <p>
+        <strong>Room type:</strong>
+        <% roomtype = {1 => "Apartment", 2 => "Induvidual House", 3 => "PG"} %>
+        <%= roomtype[@room.room_type] %>
+      </p>
+
+      <p>
+        <strong>Total limit:</strong>
+        <%= @room.total_limit %>
+      </p>
+
+      <p>
+        <strong>Current vacancy:</strong>
+        <%= @room.current_vacancy %>
+      </p>
+
+      <p>
+        <strong>City:</strong>
+        <%= @room.city %>
+      </p>
+
+      <p>
+        <strong>Gender preference:</strong>
+        <%= @room.gender_preference %>
+      </p>
+
+      <p>
+        <strong>Visible in Search:</strong>
+        <%= @room.visibility ? "Yes" : "No" %>
+      </p>
+
+      <p>
+        <strong>Total rent:</strong>
+        <%= @room.total_rent %>
+      </p>
+
+      <p>
+        <strong>Expected rent:</strong>
+        <%= @room.expected_rent %>
+      </p>
+
+
+      <p>
+        <strong>User:</strong>
+        <%= link_to @room.user.name, @room.user %>
+      </p>
+
+      <h3>Facilities</h3>
+      <table>
+        <tr>
+          <td>
+            <p>
+              <strong>TV:</strong>
+              <%= RoomFacility.find_by(room_id: @room.id).tv ? "Yes" : "No" %>
+            </p>
+          </td>
+          <td style="padding-left: 20px">
+            <p>
+              <strong>AC:</strong>
+              <%= RoomFacility.find_by(room_id: @room.id).ac ? "Yes" : "No" %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Two Wheeler Parking:</strong>
+              <%= RoomFacility.find_by(room_id: @room.id).two_wheeler_parking ? "Yes" : "No" %>
+            </p>
+          </td>
+          <td style="padding-left: 20px">
+            <p>
+              <strong>Washing Machine:</strong>
+              <%= RoomFacility.find_by(room_id: @room.id).wasing_machine ? "Yes" : "No" %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Basic Appliances:</strong>
+              <%= RoomFacility.find_by(room_id: @room.id).basic_appliance ? "Yes" : "No" %>
+            </p>
+          </td>
+          <td style="padding-left: 20px">
+            <p>
+              <strong>Four Wheeler Parking:</strong>
+              <%= RoomFacility.find_by(room_id: @room.id).four_wheeler_parking ? "Yes" : "No" %>
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Room Rules</h3>
+      <table>
+        <tr>
+          <td>
+            <p>
+              <strong>Veg Only:</strong>
+              <%= RoomRule.find_by(room_id: @room.id).veg_only ? "Yes" : "No" %>
+            </p>
+          </td>
+          <td style="padding-left: 20px">
+            <p>
+              <strong>Alcohol Allowed:</strong>
+              <%= RoomRule.find_by(room_id: @room.id).alcohol_allowed ? "Yes" : "No" %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Smoking Allowed:</strong>
+              <%= RoomRule.find_by(room_id: @room.id).smoking_allowed ? "Yes" : "No" %>
+            </p>
+          </td>
+        </tr>
+      </table>
     </td>
-  </tr>
-  <tr>
     <td>
-      <p>
-        <strong>Two Wheeler Parking:</strong>
-        <%= RoomFacility.find_by(room_id: @room.id).two_wheeler_parking ? "Yes" : "No" %>
-      </p>
-    </td>
-    <td style="padding-left: 20px">
-      <p>
-        <strong>Washing Machine:</strong>
-        <%= RoomFacility.find_by(room_id: @room.id).wasing_machine ? "Yes" : "No" %>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>
-        <strong>Basic Appliances:</strong>
-        <%= RoomFacility.find_by(room_id: @room.id).basic_appliance ? "Yes" : "No" %>
-      </p>
-    </td>
-    <td style="padding-left: 20px">
-      <p>
-        <strong>Four Wheeler Parking:</strong>
-        <%= RoomFacility.find_by(room_id: @room.id).four_wheeler_parking ? "Yes" : "No" %>
-      </p>
+      <div id="map-canvas" style="width:800px;height:400px"/>
     </td>
   </tr>
 </table>
 
-<h3>Room Rules</h3>
-<table>
-  <tr>
-    <td>
-      <p>
-        <strong>Veg Only:</strong>
-        <%= RoomRule.find_by(room_id: @room.id).veg_only ? "Yes" : "No" %>
-      </p>
-    </td>
-    <td style="padding-left: 20px">
-      <p>
-        <strong>Alcohol Allowed:</strong>
-        <%= RoomRule.find_by(room_id: @room.id).alcohol_allowed ? "Yes" : "No" %>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>
-        <strong>Smoking Allowed:</strong>
-        <%= RoomRule.find_by(room_id: @room.id).smoking_allowed ? "Yes" : "No" %>
-      </p>
-    </td>
-  </tr>
-</table>
+<script type="text/javascript">
+  $(document).ready(function(){
+      set_map(2, '<%= @room.latitude %>,<%= @room.longitude %>', false);
+    });
+</script>
 
-
-<%= link_to 'Edit', edit_room_path(@room) %> |
+<% if(@room.user_id == current_user.id) then %>
+<%= link_to 'Edit', edit_room_path(@room) %> | <%= link_to 'Delete', @room, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<% end %>
 <%= link_to 'Back', rooms_path %>
+
+<% if(@room.user_id != current_user.id) then %>
+<%= "Request will come here" %> | 
+<% end %>
