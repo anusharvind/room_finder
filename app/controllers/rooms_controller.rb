@@ -78,7 +78,7 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.permit(:name, :area, :room_type, :total_limit, :current_vacancy, :city, :gender_preference, :visibility, :total_rent, :expected_rent, :latitude, :longitude)
+      params.permit(:name, :area, :room_type, :total_limit, :current_vacancy, :city, :gender_preference, :visibility, :total_rent, :expected_rent, :latitude, :longitude, :user_id)
     end
 
     def room_rules_params

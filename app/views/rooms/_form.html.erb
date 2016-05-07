@@ -25,9 +25,11 @@
     <%= number_field_tag(:current_vacancy) %>
   </div>
 
-  <div class="field">
-    <%= label_tag(:city,"CITY") %><br>  
-    <%= text_field_tag(:city) %>
+  <div class="field"> 
+    <%= hidden_field_tag(:city, "Chennai") %>
+  </div>
+  <div class="field"> 
+    <%= hidden_field_tag(:user_id, current_user.id) %>
   </div>
   <div class="field">
     <%= label_tag(:gender_preference,"GENDER PREFERENCE") %><br>  
