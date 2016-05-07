@@ -1,0 +1,178 @@
+<div style="padding-left: 2cm;">
+
+<%= form_tag(action: "create", method: "post", :class => "form-horizontal center") do %>
+  
+  <div class="form-group">
+    <%= label_tag(:name,"NAME", :class => "col-md-4 control-label") %>
+    <div class="col-md-8"><%= text_field_tag(:name, @room.name) %> </div>
+  </div>  <br/>
+
+
+  <div class="form-group">
+    <%= label_tag(:area,"AREA", :class => "col-md-4 control-label") %><br>  
+    <div class="col-md-8"><%= text_field_tag(:area, @room.area) %> </div>
+  </div> <br/>
+
+
+  <div class="field">
+    <div id="map-canvas" style="width:800px;height:400px"/>
+  </div>
+
+  <p style="display:none" id="maphint">Drag marker to the location of your room</p>
+
+
+
+<table width="100%">
+
+<tr> 
+
+<td> 
+  <div class="form-group">
+    <%= label_tag(:room_type,"ROOMTYPE", :class => "col-md-4 control-label") %><br>  
+    <div class="col-md-8"><%= select_tag(:room_type, "<option value=1>Apartment</option><option value=2>Induvidual House</option><option value=3>PG</option>".html_safe) %> </div>
+  </div>  <br/>
+
+
+  <div class="form-group">
+    <%= label_tag(:total_limit,"TOTAL LIMIT", :class => "col-md-4 control-label") %><br>  
+    <div class="col-md-8"><%= number_field_tag(:total_limit, @room.total_limit) %> </div>
+  </div> <br/>
+
+  <div class="form-group">
+    <%= label_tag(:current_vacancy,"CURRENT VACANCY", :class => "col-md-4 control-label") %><br>  
+    <div class="col-md-8"><%= number_field_tag(:current_vacancy, @room.current_vacancy) %> </div>
+  </div> <br/>
+
+</td>
+
+<td> 
+
+    <div class="form-group">
+      <%= label_tag(:gender_preference,"GENDER PREFERENCE", :class => "col-md-4 control-label") %><br>  
+      <div class="col-md-8"><%= select_tag(:gender_preference, "<option>Male</option><option>Female</option><option>No Preference</option>".html_safe) %></div>
+    </div> <br/>
+
+    <div class="form-group">
+      <%= label_tag(:visibility,"VISIBLE IN SEARCH", :class => "col-md-4 control-label") %><br>  
+      <div style = "float:left" class="col-md-8"> <%= check_box_tag(:visibility, @room.visibility) %></div><br>
+    </div> <br/>
+
+</td>
+
+</table>
+
+<br/> <br/> 
+<%= hidden_field_tag(:city, "Chennai") %>
+<%= hidden_field_tag(:user_id, current_user.id) %>
+
+  <div class="form-group">
+    <%= label_tag(:total_rent,"TOTAL RENT", :class => "col-md-4 control-label") %><br>  
+    <div class="col-md-8"><%= number_field_tag(:total_rent, @room.total_rent) %> </div>
+  </div> <br/>
+
+  <div class="form-group">
+    <%= label_tag(:expected_rent,"Expected RENT", :class => "col-md-4 control-label") %><br>  
+    <div class="col-md-8"><%= number_field_tag(:expected_rent, @room.expected_rent) %> </div>
+  </div> <br/>
+
+  <div class="form-group"> 
+
+    <%= hidden_field_tag(:latitude) %>
+  </div>
+  <div class="form-group">
+    <%= hidden_field_tag(:longitude) %>
+  </div>
+<hr color="black" />
+
+
+
+<h2>Room Facilities</h2><br>
+
+
+<table width="100%">
+<tr>
+    <td><div class="form-group">
+      <%= label_tag(:tv,"TV", :class => "col-md-4 control-label") %><br>  
+      <div style = "float:left" class="col-md-8" > <%= check_box_tag(:tv, RoomFacility.find_by(room_id: @room.id).tv) %></div><br>
+    </div> </td>
+    <td><div class="form-group">
+      <%= label_tag(:wasing_machine,"WASHING MACHINE", :class => "col-md-4 control-label") %><br>  
+      <div style = "float:left" class="col-md-8"> <%= check_box_tag(:wasing_machine, RoomFacility.find_by(room_id: @room.id).wasing_machine) %></div><br>
+    </div> </td>
+
+</tr>
+
+<tr>
+  <td><div class="form-group">
+    <%= label_tag(:ac,"AC", :class => "col-md-4 control-label") %><br>  
+    <div style = "float:left" class="col-md-8"> <%= check_box_tag(:ac, RoomFacility.find_by(room_id: @room.id).ac) %></div><br>
+  </div> </td>
+  <td><div class="form-group">
+    <%= label_tag(:basic_appliance,"BASIC APPLIANCES", :class => "col-md-4 control-label") %><br>  
+    <div style = "float:left" class="col-md-8"> <%= check_box_tag(:basic_appliance, RoomFacility.find_by(room_id: @room.id).basic_appliance) %></div><br>
+  </div> </td>
+
+</tr>
+
+<tr>
+  <td><div class="form-group">
+    <%= label_tag(:two_wheeler_parking,"TWO WHEELER PARKING", :class => "col-md-4 control-label") %><br>  
+    <div style = "float:left" class="col-md-8"> <%= check_box_tag(:two_wheeler_parking, RoomFacility.find_by(room_id: @room.id).two_wheeler_parking) %></div><br>
+  </div> </td>
+  <td><div class="form-group">
+    <%= label_tag(:four_wheeler_parking,"FOUR WHEELER PARKING", :class => "col-md-4 control-label") %><br>  
+    <div style = "float:left" class="col-md-8"> <%= check_box_tag(:four_wheeler_parking, RoomFacility.find_by(room_id: @room.id).four_wheeler_parking) %></div><br>
+  </div> </td>
+</tr>
+
+</table>
+
+<hr/>
+
+
+
+<h2>Room Rules</h2><br>
+
+<table width="100%">
+<tr>
+  <td><div class="form-group">
+    <%= label_tag(:veg_only,"VEG ONLY", :class => "col-md-4 control-label") %><br>  
+    <div style = "float:left" class="col-md-8"> <%= check_box_tag(:veg_only, RoomRule.find_by(room_id: @room.id).veg_only) %></div><br>
+  </div> </td>
+
+  <td><div class="form-group">
+    <%= label_tag(:smoking_allowed,"SMOKING ALLOWED", :class => "col-md-4 control-label") %><br>  
+    <div style = "float:left" class="col-md-8"> <%= check_box_tag(:smoking_allowed, RoomRule.find_by(room_id: @room.id).smoking_allowed) %></div><br>
+  </div></td>
+
+</tr>
+
+<tr>
+  <td><div class="form-group">
+    <%= label_tag(:alcohol_allowed,"ALCOHOL ALLOWED", :class => "col-md-4 control-label") %><br>  
+    <div style = "float:left" class="col-md-8"> <%= check_box_tag(:alcohol_allowed, RoomRule.find_by(room_id: @room.id).alcohol_allowed) %></div><br>
+  </div> </td>
+</tr>
+</table>
+
+ <center> <%= submit_tag("Save") %> </center>
+  <% end %>
+
+</div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      set_map(2, '<%= @room.latitude %>,<%= @room.longitude %>', true);
+    });
+    $('#area').blur(function() {
+      $('#maphint').show();
+      set_map(1, '<%= "Tamil Nadu" %>,<%= "Chennai" %>,'+$('#area').val(), true);
+    });
+    var areas = [];
+    <% Location.all.each do |location| %>
+      areas.push("<%= location.area %>");
+    <% end %>
+    $("#area").autocomplete({
+      source: areas
+    });
+</script>

@@ -7,7 +7,7 @@
 
     <div class="form-group" style="float: right;">
     <%= label_tag(:number,"No of persons ", :class => "col-md-4 control-label") %>
-    <div class="col-md-8"><%= text_field_tag(:number) %> </div>
+    <div class="col-md-8"><%= number_field_tag(:number, min: 1) %> </div>
   </div> 
 </div>
       <%= submit_tag("Search") %>
@@ -39,4 +39,11 @@ function carousel() {
     x[myIndex-1].style.display = "block";  
     setTimeout(carousel, 2000); // Change image every 2 seconds
 }
+var areas = [];
+    <% Location.all.each do |location| %>
+      areas.push("<%= location.area %>");
+    <% end %>
+    $("#location").autocomplete({
+      source: areas
+    });
 </script>
