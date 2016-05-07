@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :room_requests
   resources :room_rules
   resources :room_facilities
-  resources :rooms
+  resources :rooms do
+    resources :room_requests
+  end
   resources :users
 
 
@@ -19,8 +20,6 @@ Rails.application.routes.draw do
 
   get '/new_room' => 'rooms#new'
 
-  resources :rooms
-  resources :users
   get 'sessions/create'
 
   get 'sessions/destroy'

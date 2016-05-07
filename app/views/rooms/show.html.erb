@@ -149,5 +149,9 @@
 <%= link_to 'Back', rooms_path %>
 
 <% if(@room.user_id != current_user.id) then %>
-<%= "Request will come here" %> | 
-<% end %>
+    <% if RoomRequest.where(user_id: current_user.id,room_id: @room.id).exists? %>
+          <%= "Requested" %>
+    <% else %>
+       <%= link_to 'Request', "#{@room.id}/room_requests/new?number=#{@requested_for}" %>
+    <% end %>
+<% end %> 
