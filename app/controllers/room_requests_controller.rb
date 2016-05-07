@@ -4,6 +4,7 @@ class RoomRequestsController < ApplicationController
   # GET /room_requests
   # GET /room_requests.json
   def index
+    @requests = RoomRequest.where(room_id: params[:room_id])
   end
 
   # GET /room_requests/1
@@ -21,6 +22,24 @@ class RoomRequestsController < ApplicationController
 
   # GET /room_requests/1/edit
   def edit
+    if(params[:option] == "1")
+      @request = RoomRequest.find(params[:id])
+      @request.update_attribute(:status, 2)
+      @requests = RoomRequest.where(room_id: @request.room_id)
+      @requests.each do |request|
+        request.update_attribute(:status, 3) unless request.id == @request.id
+      end
+      cv = Room.find(@request.room_id).current_vacancy
+      Room.find(@request.room_id).update_attribute(:current_vacancy, cv-@request.no_of_peoples)
+      flash[:success] = "Approved"
+      redirect_to request.referer
+    else
+      @request = RoomRequest.find(params[:id])
+      @request.update_attribute(:status, 4)
+      flash[:success] = "Rejected"
+      redirect_to request.referer
+    end
+    
   end
 
   # POST /room_requests

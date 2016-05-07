@@ -144,13 +144,27 @@
 </script>
 
 <% if(@room.user_id == current_user.id) then %>
-<%= link_to 'Edit', edit_room_path(@room) %> | <%= link_to 'Delete', @room, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+  <%= link_to 'Edit', edit_room_path(@room) %> | <%= link_to 'Delete', @room, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+  <% if RoomRequest.where(room_id: @room.id).exists? %>
+    <%= link_to 'Requests', "#{@room.id}/room_requests" %> | 
+  <% end %>
 <% end %>
-<%= link_to 'Back', rooms_path %>
+<%= link_to 'Back', rooms_path %> | 
 
 <% if(@room.user_id != current_user.id) then %>
     <% if RoomRequest.where(user_id: current_user.id,room_id: @room.id).exists? %>
-          <%= "Requested" %>
+          <% if RoomRequest.find_by(user_id: current_user.id,room_id: @room.id).status == 1 %>
+              <%= "Requested" %>
+          <% end %>
+          <% if RoomRequest.find_by(user_id: current_user.id,room_id: @room.id).status == 2 %>
+              <%= "Approved" %>
+          <% end %>
+          <% if RoomRequest.find_by(user_id: current_user.id,room_id: @room.id).status == 3 %>
+              <%= "Room no longer available" %>
+          <% end %>
+          <% if RoomRequest.find_by(user_id: current_user.id,room_id: @room.id).status == 4 %>
+              <%= "Request has been rejected by user" %>
+          <% end %>
     <% else %>
        <%= link_to 'Request', "#{@room.id}/room_requests/new?number=#{@requested_for}" %>
     <% end %>
