@@ -10,6 +10,9 @@ body {
     background: white;
   }
 
+
+.mySlides {display:none}
+
 #header { 
   padding-top: 5px;
 }
