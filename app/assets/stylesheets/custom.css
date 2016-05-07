@@ -1,7 +1,7 @@
 @import "lesshat";
 
 .container { 
-  width: 1000px;
+  width: "100%";
 }
 
 
