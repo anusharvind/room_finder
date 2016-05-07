@@ -18,11 +18,12 @@ table td, table th {
   <thead>
     <tr>
       <th>Name</th>
-      <th>Area</th>
-      <th>Gender preference</th>
-      <th>Total rent</th>
-      <th>Expected rent</th>
-      <th>Host</th>
+      <th style="padding-left: 5px">Area</th>
+      <th style="padding-left: 5px">Prefers</th>
+      <th style="padding-left: 5px">Vacancy</th>
+      <th style="padding-left: 5px">Total rent</th>
+      <th style="padding-left: 5px">Expected rent</th>
+      <th style="padding-left: 5px">Host</th>
     </tr>
   </thead>
 
@@ -34,11 +35,12 @@ table td, table th {
         <% else %>
           <td><%= link_to room.name, room %></td>
         <% end %>
-        <td><%= room.area %></td>
-        <td><%= room.gender_preference %></td>
-        <td><%= room.total_rent %></td>
-        <td><%= room.expected_rent %></td>
-        <td><%= link_to User.find(room.user_id).name, User.find(room.user_id) %></td>
+        <td style="padding-left: 5px"><%= room.area %></td>
+        <td style="padding-left: 5px"><%= room.gender_preference %></td>
+        <td style="padding-left: 5px"><%= room.current_vacancy %></td>
+        <td style="padding-left: 5px"><%= room.total_rent %></td>
+        <td style="padding-left: 5px"><%= room.expected_rent %></td>
+        <td style="padding-left: 5px"><%= link_to User.find(room.user_id).name, User.find(room.user_id) %></td>
       </tr>
     <% end %>
   </tbody>
