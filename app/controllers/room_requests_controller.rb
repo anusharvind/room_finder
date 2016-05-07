@@ -31,6 +31,10 @@ class RoomRequestsController < ApplicationController
       end
       cv = Room.find(@request.room_id).current_vacancy
       Room.find(@request.room_id).update_attribute(:current_vacancy, cv-@request.no_of_peoples)
+      @userrequests = RoomRequest.where(user_id: @request.user_id)
+      @userrequests.each do |request|
+        request.update_attribute(:status, 5) unless request.id == @request.id
+      end
       flash[:success] = "Approved"
       redirect_to request.referer
     else

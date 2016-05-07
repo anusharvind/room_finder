@@ -165,7 +165,16 @@
           <% if RoomRequest.find_by(user_id: current_user.id,room_id: @room.id).status == 4 %>
               <%= "Request has been rejected by user" %>
           <% end %>
+          <% if RoomRequest.find_by(user_id: current_user.id,room_id: @room.id).status == 5 %>
+              <%= "Some other request has been approved for you" %>
+          <% end %>
     <% else %>
-       <%= link_to 'Request', "#{@room.id}/room_requests/new?number=#{@requested_for}" %>
+       <% if @room.current_vacancy > 0 %>
+        <% if @requested_for %>
+          <%= link_to 'Request', "#{@room.id}/room_requests/new?number=#{@requested_for}" %>
+        <% else %>
+          <%= link_to 'Request', "#{@room.id}/room_requests/new?number=1" %>
+        <% end %>
+      <% end %>
     <% end %>
 <% end %> 

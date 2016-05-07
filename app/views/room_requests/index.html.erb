@@ -3,6 +3,7 @@
 <h3>Listing Room Requests</h3>
 <% counter =0 %>
 <% @requests.each do |request| %>
+<br>
   <%= "#{counter += 1}." %><%= "Request by "%>
   <%= link_to User.find(request.user_id).name, User.find(request.user_id) %>
   <%= " for #{request.no_of_peoples} people" %> | 
@@ -18,6 +19,9 @@
   <% end %>
   <% if(request.status == 4) %>
     <%= "This request has been rejected" %>
+  <% end %>
+  <% if(request.status == 5) %>
+    <%= "Some other host has approved this request for their room" %>
   <% end %>
 <% end %>
 
