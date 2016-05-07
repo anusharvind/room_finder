@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  veg_only: false
+  smoking_allowed: false
+  alcohol_allowed: false
+
+two:
+  veg_only: false
+  smoking_allowed: false
+  alcohol_allowed: false

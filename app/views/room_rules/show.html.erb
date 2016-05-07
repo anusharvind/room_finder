@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Veg only:</strong>
+  <%= @room_rule.veg_only %>
+</p>
+
+<p>
+  <strong>Smoking allowed:</strong>
+  <%= @room_rule.smoking_allowed %>
+</p>
+
+<p>
+  <strong>Alcohol allowed:</strong>
+  <%= @room_rule.alcohol_allowed %>
+</p>
+
+<%= link_to 'Edit', edit_room_rule_path(@room_rule) %> |
+<%= link_to 'Back', room_rules_path %>

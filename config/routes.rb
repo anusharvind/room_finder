@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :room_requests
+  resources :room_rules
+  resources :room_facilities
+  resources :rooms
+  resources :users
+
+
   get 'pages/home'
 
   get 'pages/help'
@@ -11,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :rooms
   resources :users
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tv:</strong>
+  <%= @room_facility.tv %>
+</p>
+
+<p>
+  <strong>Wasing machine:</strong>
+  <%= @room_facility.wasing_machine %>
+</p>
+
+<p>
+  <strong>Ac:</strong>
+  <%= @room_facility.ac %>
+</p>
+
+<p>
+  <strong>Basic appliance:</strong>
+  <%= @room_facility.basic_appliance %>
+</p>
+
+<p>
+  <strong>Two wheeler parking:</strong>
+  <%= @room_facility.two_wheeler_parking %>
+</p>
+
+<p>
+  <strong>Four wheeler parking:</strong>
+  <%= @room_facility.four_wheeler_parking %>
+</p>
+
+<%= link_to 'Edit', edit_room_facility_path(@room_facility) %> |
+<%= link_to 'Back', room_facilities_path %>

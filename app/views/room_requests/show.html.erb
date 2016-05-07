@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @room_request.status %>
+</p>
+
+<p>
+  <strong>No of peoples:</strong>
+  <%= @room_request.no_of_peoples %>
+</p>
+
+<p>
+  <strong>Moved:</strong>
+  <%= @room_request.moved %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @room_request.user %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @room_request.room %>
+</p>
+
+<%= link_to 'Edit', edit_room_request_path(@room_request) %> |
+<%= link_to 'Back', room_requests_path %>
