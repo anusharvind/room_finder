@@ -18,7 +18,7 @@
 
     <div align="right" style="float: right">
       <% if current_user %>
-             <a class="navbar-brand" href="/">Host my Room &nbsp;&nbsp;| </a>
+             <a class="navbar-brand" href="/new_room">Host my Room &nbsp;&nbsp;| </a>
               <%= link_to "Sign out    ", signout_path, id: "sign_out", :class=> "navbar-brand" %> &nbsp;&nbsp;
       <% else %>
            <a class="navbar-brand" href="/">Sign in <%= link_to logo("fb.png",50,50), "auth/facebook", id: "sign_in" %> &nbsp;&nbsp; </a>

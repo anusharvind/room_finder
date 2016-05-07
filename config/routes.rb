@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'pages/signin'
 
+  get '/new_room' => 'rooms#new'
+
   resources :rooms
   resources :users
   get 'sessions/create'
