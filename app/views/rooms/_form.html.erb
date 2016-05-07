@@ -39,9 +39,9 @@
     <%= f.label :gender_preference %><br>
     <%= f.text_field :gender_preference %>
   </div>
-  <div class="field">
+  <div class = "field">
     <%= f.label :visibility %><br>
-    <%= f.check_box :visibility %>
+   <div style = "float:left"> <%= f.check_box :visibility %></div><br>
   </div>
   <div class="field">
     <%= f.label :total_rent %><br>
@@ -63,7 +63,5 @@
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
 <% end %>

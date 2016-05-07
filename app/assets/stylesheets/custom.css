@@ -267,7 +267,7 @@ td.sidebar {
 
 div.field, div.actions {
   margin-bottom: 10px; 
-  color : white;
+  
 }
 
 label, input {
@@ -278,7 +278,7 @@ label, input {
 label {
     width: 30%;
     /* positions the label text beside the input */
-    text-align: right;
+    
 }
 
 label + input {
