@@ -1,7 +1,13 @@
 @import "lesshat";
 
 .container { 
-  width: 1000px;
+  width: "100%";
+}
+
+
+
+ul#menu li {
+    display:inline;
 }
 
 body {
@@ -267,7 +273,7 @@ td.sidebar {
 
 div.field, div.actions {
   margin-bottom: 10px; 
-  color : white;
+  
 }
 
 label, input {
@@ -278,7 +284,7 @@ label, input {
 label {
     width: 30%;
     /* positions the label text beside the input */
-    text-align: right;
+    
 }
 
 label + input {
@@ -523,7 +529,14 @@ div.user_info span.user_name {
 .rating-13 { background-position: 0 -12px; }
 
 
-
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
 
 
 

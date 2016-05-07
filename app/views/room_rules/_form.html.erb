@@ -1,27 +1,15 @@
 <%= form_for(@room_rule) do |f| %>
-  <% if @room_rule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@room_rule.errors.count, "error") %> prohibited this room_rule from being saved:</h2>
-
-      <ul>
-      <% @room_rule.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :veg_only %><br>
-    <%= f.check_box :veg_only %>
+    <div style = "float:left"> <%= f.check_box :veg_only %></div><br>
   </div>
   <div class="field">
     <%= f.label :smoking_allowed %><br>
-    <%= f.check_box :smoking_allowed %>
+    <div style = "float:left"> <%= f.check_box :smoking_allowed %></div><br>
   </div>
   <div class="field">
     <%= f.label :alcohol_allowed %><br>
-    <%= f.check_box :alcohol_allowed %>
+    <div style = "float:left"> <%= f.check_box :alcohol_allowed %></div><br>
   </div>
   <div class="actions">
     <%= f.submit %>

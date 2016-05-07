@@ -1,0 +1,22 @@
+
+<%= params.inspect if Rails.env.development? %>
+
+<div align="right">
+  <ul id="menu" align="left" class="navigation round" style="background: white">
+  <li> <a  href="/"><%= link_to logo("facebook-logo.png",20,20), "#" %></a></li>
+  <li> <a  href="/"><%= link_to logo("social.png",20,20), "#" %></a></li>
+  <li> <a  href="/"><%= link_to logo("google-plus-social-logotype.png",20,20), "#" %></a></li>
+  <li> <a class="navbar-brand" href="/"><%= link_to logo("linkedin-logo-button.png",20,20), "#" %></a></li>
+</ul> 
+</div>
+
+
+<div class="container text-center">
+    <div class="row" width="30">
+        <div class="col-lg-12">
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="/">© 2016 Room Finder, Inc</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
