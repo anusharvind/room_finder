@@ -1,16 +1,17 @@
-
+<%= form_tag("/rooms", method: "get") do %>
 <div align="right" style="display: inline-block; float: right;">
   <div class="form-group" style="float: right;">
-    <%= label_tag(:name,"location", :class => "col-md-4 control-label") %>
-    <div class="col-md-8"><%= text_field_tag(:name) %> </div>
+    <%= label_tag(:location,"location", :class => "col-md-4 control-label") %>
+    <div class="col-md-8"><%= text_field_tag(:location) %> </div>
   </div> 
 
     <div class="form-group" style="float: right;">
-    <%= label_tag(:name,"No of persons ", :class => "col-md-4 control-label") %>
-    <div class="col-md-8"><%= text_field_tag(:name) %> </div>
+    <%= label_tag(:number,"No of persons ", :class => "col-md-4 control-label") %>
+    <div class="col-md-8"><%= text_field_tag(:number) %> </div>
   </div> 
 </div>
-
+      <%= submit_tag("Search") %>
+<% end %>
 <center>
 <div class="w3-content" style="max-width:800px;position:relative" align="center">
   <%= image_tag("room1.png", :alt => "App", :class => "mySlides", :style => "width:100%; height: 400px; align: center") %>
