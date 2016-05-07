@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tv: false
+  wasing_machine: false
+  ac: false
+  basic_appliance: false
+  two_wheeler_parking: false
+  four_wheeler_parking: false
+
+two:
+  tv: false
+  wasing_machine: false
+  ac: false
+  basic_appliance: false
+  two_wheeler_parking: false
+  four_wheeler_parking: false
