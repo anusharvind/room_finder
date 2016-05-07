@@ -50,6 +50,8 @@ class RoomsController < ApplicationController
           @room_facility.save
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
+        #@graph = Koala::Facebook::API.new(current_user.oauth_token)
+        #@graph.put_connections("me", "feed", message: "I have posted about a room vacancy in Room Finder! Check it out now!")
       else
         format.html { render :new }
         format.json { render json: @room.errors, status: :unprocessable_entity }
