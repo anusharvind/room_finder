@@ -107,4 +107,11 @@
       $('#maphint').show();
       set_map(1, '<%= "Tamil Nadu" %>,<%= "Chennai" %>,'+$('#area').val(), true);
     });
+    var areas = [];
+    <% Location.all.each do |location| %>
+      areas.push("<%= location.area %>");
+    <% end %>
+    $("#area").autocomplete({
+      source: areas
+    });
 </script>
