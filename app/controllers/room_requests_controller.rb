@@ -4,7 +4,6 @@ class RoomRequestsController < ApplicationController
   # GET /room_requests
   # GET /room_requests.json
   def index
-    @room_requests = RoomRequest.all
   end
 
   # GET /room_requests/1
@@ -14,7 +13,10 @@ class RoomRequestsController < ApplicationController
 
   # GET /room_requests/new
   def new
-    @room_request = RoomRequest.new
+    @room_request = RoomRequest.new(:user_id => current_user.id, :room_id => params[:room_id], :no_of_peoples => params[:number], :status => 1)
+    @room_request.save
+    flash[:success] = "Requested"
+    redirect_to request.referer
   end
 
   # GET /room_requests/1/edit

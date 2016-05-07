@@ -8,7 +8,8 @@ class RoomsController < ApplicationController
     if(params.has_key?(:user_id)) then
       @rooms = Room.where(user_id: params[:user_id])
     elsif (params.has_key?(:location) && params.has_key?(:number)) then
-      @rooms = Room.where(area: params[:location]).where("current_vacancy >= ?", params[:number])
+      @requested_for = params[:number]
+      @rooms = Room.where(area: params[:location], visibility: true).where("current_vacancy >= ?", params[:number])
     else
       @rooms = Room.all
     end
@@ -17,7 +18,9 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-   
+    if(params.has_key?(:number)) then
+      @requested_for = params[:number]
+    end
   end
 
   # GET /rooms/new

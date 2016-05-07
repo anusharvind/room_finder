@@ -30,7 +30,11 @@ table td, table th {
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= link_to room.name, room %></td>
+        <% if(@requested_for) then %>
+          <td><%= link_to room.name, "rooms/#{room.id}?number=#{@requested_for}" %></td>
+        <% else %>
+          <td><%= link_to room.name, room %></td>
+        <% end %>
         <td style="padding-left: 5px"><%= room.area %></td>
         <td style="padding-left: 5px"><%= room.gender_preference %></td>
         <td style="padding-left: 5px"><%= room.current_vacancy %></td>
