@@ -1,16 +1,18 @@
-<%= form_tag("/rooms", method: "get") do %>
-<div align="right" style="display: inline-block; float: right;">
-  <div class="form-group" style="float: right;">
-    <%= label_tag(:location,"location", :class => "col-md-4 control-label") %>
-    <div class="col-md-8"><%= text_field_tag(:location) %> </div>
-  </div> 
-
+<% if current_user %>
+  <%= form_tag("/rooms", method: "get") do %>
+  <div align="right" style="display: inline-block; float: right;">
     <div class="form-group" style="float: right;">
-    <%= label_tag(:number,"No of persons ", :class => "col-md-4 control-label") %>
-    <div class="col-md-8"><%= number_field_tag(:number, min: 1) %> </div>
-  </div> 
-</div>
-      <%= submit_tag("Search") %>
+      <%= label_tag(:location,"location", :class => "col-md-4 control-label") %>
+      <div class="col-md-8"><%= text_field_tag(:location) %> </div>
+    </div> 
+
+      <div class="form-group" style="float: right;">
+      <%= label_tag(:number,"No of persons ", :class => "col-md-4 control-label") %>
+      <div class="col-md-8"><%= number_field_tag(:number, min: 1) %> </div>
+    </div> 
+  </div>
+        <%= submit_tag("Search") %>
+  <% end %>
 <% end %>
 <center>
 <div class="w3-content" style="max-width:800px;position:relative" align="center">
