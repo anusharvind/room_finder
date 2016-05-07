@@ -31,12 +31,18 @@ function set_map(option, location, drag){
         var locations = location.split(',');
         var lat = locations[0];
         var lng = locations[1];
-        map.setCenter(new google.maps.LatLng(12.969390, 80.243851));
-        marker.setPosition(new google.maps.LatLng(12.969390, 80.243851));
+        map.setCenter(new google.maps.LatLng(lat, lng));
+        marker.setPosition(new google.maps.LatLng(lat, lng));
       }
-      map.setZoom(16);
+      if(option == 0) {
+        map.setZoom(12);
+      }
+      else {
+        map.setZoom(16);
+      }
       marker.addListener('dragend',function(event) {
-        alert("Lat: "+event.latLng.lat()+", Lng: "+event.latLng.lng());
+        $('#latitude').val(event.latLng.lat());
+        $('#longitude').val(event.latLng.lng());
     });
     }else{
       alert("Geocode was not successful for the following reason: " + status);

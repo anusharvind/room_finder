@@ -9,6 +9,10 @@
     <%= text_field_tag(:area) %>
   </div>
   <div class="field">
+    <div id="map-canvas" style="width:800px;height:400px"/>
+  </div>
+  <p style="display:none" id="maphint">Drag marker to the location of your room</p>
+  <div class="field">
     <%= label_tag(:room_type,"ROOMTYPE") %><br>  
     <%= text_field_tag(:room_type) %>
   </div>
@@ -92,3 +96,13 @@
 
   <%= submit_tag("Save") %>
   <% end %>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      set_map(0, '<%= "Tamil Nadu" %>,<%= "Chennai" %>', false);
+    });
+    $('#area').blur(function() {
+      $('#maphint').show();
+      set_map(1, '<%= "Tamil Nadu" %>,<%= "Chennai" %>,'+$('#area').val(), true);
+    });
+</script>
