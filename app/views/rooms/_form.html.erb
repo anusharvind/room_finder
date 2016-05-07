@@ -29,13 +29,13 @@
 <td> 
   <div class="form-group">
     <%= label_tag(:room_type,"ROOMTYPE", :class => "col-md-4 control-label") %><br>  
-    <div class="col-md-8"><%= text_field_tag(:room_type) %> </div>
+    <div class="col-md-8"><%= select_tag(:room_type, "<option value=1>Apartment</option><option value=2>Induvidual House</option><option value=3>PG</option>".html_safe) %> </div>
   </div>  <br/>
 
 
   <div class="form-group">
     <%= label_tag(:total_limit,"TOTAL LIMIT", :class => "col-md-4 control-label") %><br>  
-    <div class="col-md-8"><%= text_field_tag(:total_limit) %> </div>
+    <div class="col-md-8"><%= number_field_tag(:total_limit) %> </div>
   </div> <br/>
 
   <div class="form-group">
@@ -49,11 +49,11 @@
 
     <div class="form-group">
       <%= label_tag(:gender_preference,"GENDER PREFERENCE", :class => "col-md-4 control-label") %><br>  
-      <div class="col-md-8"><%= text_field_tag(:gender_preference) %></div>
+      <div class="col-md-8"><%= select_tag(:gender_preference, "<option>Male</option><option>Female</option><option>No Preference</option>".html_safe) %></div>
     </div> <br/>
 
     <div class="form-group">
-      <%= label_tag(:visibility,"VISIBILITY", :class => "col-md-4 control-label") %><br>  
+      <%= label_tag(:visibility,"VISIBLE IN SEARCH", :class => "col-md-4 control-label") %><br>  
       <div style = "float:left" class="col-md-8"> <%= check_box_tag(:visibility) %></div><br>
     </div> <br/>
 
@@ -62,20 +62,17 @@
 </table>
 
 <br/> <br/> 
-
-  <div class="form-group">
-    <%= label_tag(:city,"CITY", :class => "col-md-4 control-label") %><br>  
-    <div class="col-md-8"><%= text_field_tag(:city) %> </div>
-  </div> <br/>
+<%= hidden_field_tag(:city, "Chennai") %>
+<%= hidden_field_tag(:user_id, current_user.id) %>
 
   <div class="form-group">
     <%= label_tag(:total_rent,"TOTAL RENT", :class => "col-md-4 control-label") %><br>  
-    <div class="col-md-8"><%= text_field_tag(:total_rent) %> </div>
+    <div class="col-md-8"><%= number_field_tag(:total_rent) %> </div>
   </div> <br/>
 
   <div class="form-group">
     <%= label_tag(:expected_rent,"Expected RENT", :class => "col-md-4 control-label") %><br>  
-    <div class="col-md-8"><%= text_field_tag(:expected_rent) %> </div>
+    <div class="col-md-8"><%= number_field_tag(:expected_rent) %> </div>
   </div> <br/>
 
   <div class="form-group"> 

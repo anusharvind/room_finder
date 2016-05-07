@@ -11,13 +11,8 @@
 </p>
 
 <p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
-
-<p>
   <strong>Gender:</strong>
-  <%= @user.gender %>
+  <%= @user.gender == 1 ? "Male" : "Female" %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
