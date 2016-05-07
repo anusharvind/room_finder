@@ -7,8 +7,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("../images/music_store1.jpg");
-}
+    background: white;
+  }
 
 #header { 
   padding-top: 5px;
@@ -16,14 +16,14 @@ body {
 
 #header img { 
   padding: 0.5em; 
-  background: black;
+  background: white;
   background: -webkit-linear-gradient(left, #2F2727, #1a82f7, #2F2727, #1a82f7, #2F2727);
 }
 
 #content {  
   font-size: 120%; 
   padding: 20px; 
-  background: black; 
+  background: white; 
   font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
   letter-spacing:0.1em;
 }
@@ -56,7 +56,7 @@ body {
 
 /* Links */
 a{
-  color: #09c; 
+  color: white; 
   text-decoration: none;
 }
 
@@ -71,13 +71,15 @@ a:visited {
 
 .navigation { 
   float: right;
+  color: white;
 }
 
 .navigation { 
-  background-color: black; 
+  background-color: grey; 
   padding: 0 0.7em; 
   white-space: nowrap;  
   font-size : 15px;
+  color :white;
 }
 
 ul.navigation { 
