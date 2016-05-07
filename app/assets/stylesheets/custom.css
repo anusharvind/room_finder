@@ -4,6 +4,12 @@
   width: 1000px;
 }
 
+
+
+ul#menu li {
+    display:inline;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -523,7 +529,14 @@ div.user_info span.user_name {
 .rating-13 { background-position: 0 -12px; }
 
 
-
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
 
 
 

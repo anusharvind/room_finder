@@ -2,6 +2,12 @@
 		<%= link_to logo("room-finder-logo.png",200,100) %>
 </div>
 
+<% if current_user %>
+  <div align="right">
+        Signed in as <strong><%= current_user.name %></strong>!
+  </div>
+<% end %>
+
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -12,11 +18,10 @@
 
     <div align="right" style="float: right">
       <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-        <a class="navbar-brand" href="/">Host my Room &nbsp;&nbsp;| </a>
+             <a class="navbar-brand" href="/">Host my Room &nbsp;&nbsp;| </a>
+              <%= link_to "Sign out    ", signout_path, id: "sign_out", :class=> "navbar-brand" %> &nbsp;&nbsp;
       <% else %>
-        <a class="navbar-brand" href="/">Sign in <%= link_to logo("fb.png",50,50), "auth/facebook", id: "sign_in" %> &nbsp;&nbsp; </a>
+           <a class="navbar-brand" href="/">Sign in <%= link_to logo("fb.png",50,50), "auth/facebook", id: "sign_in" %> &nbsp;&nbsp; </a>
       <% end %>
     </div>
   </div>
